@@ -28,7 +28,7 @@ func Start(_ *cobra.Command, args []string) error {
 	}
 
 	// Open PDF viewer
-	cmd := exec.Command("open", "-a", "Skim", "out/main.pdf")
+	cmd := exec.Command("open", "-a", "Skim", filepath.Join(outputDir, "main.pdf"))
 	cmd.Dir = parentDir
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("could not open output pdf: %w", err)
